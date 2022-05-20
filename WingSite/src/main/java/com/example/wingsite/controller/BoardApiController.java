@@ -1,8 +1,12 @@
 package com.example.wingsite.controller;
 
+import com.example.wingsite.model.Board2Dto;
 import com.example.wingsite.model.BoardDto;
+import com.example.wingsite.model.CommentDto;
+import com.example.wingsite.service.Board2ServiceImpl;
 import com.example.wingsite.service.BoardService;
 import com.example.wingsite.service.BoardServiceImpl;
+import com.example.wingsite.service.CommentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +34,8 @@ public class BoardApiController {
     @Autowired
     BoardServiceImpl boardService; //정의(객체 생성 해줘야함-> @Autowired)
 
+    @Autowired
+    Board2ServiceImpl board2Service;//클래스 가져와서 객체 정의 (null 상태에서  @Autowired 달고 스프링객체로 !)
     @GetMapping("/board/write/{idx}")
 //    @PathVariable("idx")Long idx : ("idx") 생략가능
     public BoardDto openBoardWrite(@PathVariable("idx")Long idx){
@@ -37,6 +43,8 @@ public class BoardApiController {
         BoardDto detail = boardService.getBoardDetail(idx);
         return detail;
     }
+
+
 
 //  @PostMapping : insert할때 사용하는 어노테이션
 //    @RequestBody : 입력테스트시 json형태로 데이터를 전송할수있음

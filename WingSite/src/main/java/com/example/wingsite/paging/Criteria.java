@@ -33,7 +33,7 @@ public class Criteria {
     private int pageSize;
 //    검색 키워드
     private String searchKeyword;
-//    검색 유형
+//    검색 유형(제목, 내용, 작성자 등)
     private String searchType;
 //    기본 생성자: 페이지 초기화
     public Criteria(){
